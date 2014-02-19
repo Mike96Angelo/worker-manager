@@ -1,7 +1,7 @@
 {
   "name": "worker-manager",
-  "version": "0.0.0",
-  "description": "worker-manager ==============",
+  "version": "0.0.1",
+  "description": "Have long running tasks that you want to perform without blocking your main process?",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
