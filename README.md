@@ -16,7 +16,9 @@ To use worker-manager:
 
 Documentation:
 ```javascript
-    var manager = require('worker-manager').createManager(workerFilename, workerLimit, keepAlive)
+    var manager = require('worker-manager');
+
+    var man = manager.createManager(workerFilename, workerLimit, keepAlive)
 
         workerFilename: String{file path to worker file}
         workerLimit:    Number{maximun number of worker}
@@ -72,10 +74,11 @@ Example Worker file: 'worker.js'
 ```
 Example in app file:
 ```javascript
+    var manager = require('worker-manager');
 
-    var manager = require('worker-manager').createManager('./worker.js', 10, false);
+    var man = manager.createManager('./worker.js', 10, false);
 
-    manager.send('add', [2, 4], function (err, data, mess) {
+    man.send('add', [2, 4], function (err, data, mess) {
         if (err) {
             // handle errors here
             console.log(err);
@@ -85,7 +88,7 @@ Example in app file:
         }
     });
 
-    manager.send('minus', [2, 4], function (err, data, mess) {
+    man.send('minus', [2, 4], function (err, data, mess) {
         if (err) {
             // handle errors here
             console.log(err);
