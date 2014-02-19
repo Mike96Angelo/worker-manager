@@ -5,21 +5,22 @@ Have long running tasks that you want to perform without blocking your main proc
 
 Use: worker-manager
 
-    The manager with handle all the scaryness of "threading" or using "Web Workers".
+    The manager with handle all the scaryness of "threading" or using "forked processes".
     Just created a worker file that has all your long runing tasks on it.  The manager
     will supply a woker object that will handle all thread communications, just use
     "worker.on(taskName, taskFunction);" in your worker file to redgestor your tasks.
 
-To use web-worker-manager:
+To use worker-manager:
 
-    npm install web-worker-manager
+    npm install worker-manager
 
 Documentation:
 ```javascript
-    var manager = new Manager(workerFilename, workerLimit)
+    var manager = require('worker-manager').createManager(workerFilename, workerLimit, keepAlive)
 
         workerFilename: String{file path to worker file}
         workerLimit:    Number{maximun number of worker}
+        keepAlive:      Boolean{keep workers alive when not in uses}
 
         properties:
 
@@ -56,8 +57,11 @@ Documentation:
                 does:
                     clears task if task hasn't being completed.
 ```
-Example Web Worker file: 'worker.js'
+Example Worker file: 'worker.js'
 ```javascript
+
+    var worker = require('worker-manager').createWorker();
+
     worker.on('add', function (a, b) {
         return a + b;
     });
@@ -68,7 +72,8 @@ Example Web Worker file: 'worker.js'
 ```
 Example in app file:
 ```javascript
-    var manager = new Manager('worker.js', 10);
+
+    var manager = require('worker-manager').createManager('./worker.js', 10, false);
 
     manager.send('add', [2, 4], function (err, data, mess) {
         if (err) {
