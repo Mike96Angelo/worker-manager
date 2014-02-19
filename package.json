@@ -1,6 +1,6 @@
 {
   "name": "worker-manager",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Have long running tasks that you want to perform without blocking your main process?",
   "main": "index.js",
   "scripts": {
