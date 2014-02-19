@@ -1,6 +1,6 @@
 {
   "name": "worker-manager",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Have long running tasks that you want to perform without blocking your main process?",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,11 @@
     "type": "git",
     "url": "https://github.com/Mike96Angelo/worker-manager.git"
   },
+  "keywords": [
+    "worker",
+    "manager",
+    "process"
+  ],
   "author": "Michaelangelo Jong",
   "license": "BSD-2-Clause",
   "bugs": {
