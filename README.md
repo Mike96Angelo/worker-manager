@@ -47,7 +47,7 @@ Documentation:
 
                 does:
                     creates a new task and sends it to a worker to be done, calls
-                    the callback give on task completetion.
+                    the callback give on task completion.
 
             manager.clear(taskId)
                 arguments:
